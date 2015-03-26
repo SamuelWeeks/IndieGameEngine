@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<project>
+	<!-- NMML reference: https://gist.github.com/1763850 -->
+	
+	<!-- metadata, make sure 'package' is at least 3 segments (ie. com.mycompany.myproject) -->
+	<meta title="IGE" package="www.MyIndieStruggle.IGE" version="1.0.0" company="me" />
+	
+	<!-- output -->
+	<app main="Main" file="Core" path="bin" />
+	
+	<window background="#000000" fps="60" vsync="true"/>
+	<window  fullscreen="true"unless="mobile" />
+	<window orientation="landscape" antialiasing="0" if="cpp" />
+	
+
+	
+	<!-- classpath, haxe libs -->
+	<set name="openfl-next" />
+	<source path="src" />
+	<source path="gameCode" />
+	<source path="samples" />
+	<haxelib name="openfl" />
+	<haxelib name="actuate" />
+	<haxelib name="swf" />
+	<haxelib name="SpriterHaxeEngine" />
+	<!--<haxelib name="TileLayer" />-->
+	<haxelib name="nape" />
+	<haxelib name="BitmapFont" />
+
+	
+	<!-- assets -->
+	<library path ="assets/coreAssets.swf" preload="true"  generate="true"/>
+	<icon path="assets/openfl.svg" />
+	<assets path="Assets" rename="assets" />
+	
+	
+	<!-- optimize output-->
+	<haxeflag name="-dce full" /> 
+	<!--<haxeflag name="--no-traces" />-->
+	
+	
+</project>
