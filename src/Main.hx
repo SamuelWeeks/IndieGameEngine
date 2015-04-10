@@ -333,7 +333,12 @@ class Main extends Sprite
 		Main.debugPhysicsDraw();
 		//delta----
 		Main.coreDelta.update();
-		Main.corePhysics.step(Main.coreDelta.delta, 60);
+		
+		//have to check if its greather than 0 or will not work in html5
+		if (Main.coreDelta.delta > 0)
+		{
+			Main.corePhysics.step(Main.coreDelta.delta, 60);
+		}
 		//objectgroup-------------------------
 		for (i in 0... Main.updateGroup.length)
 		{

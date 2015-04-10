@@ -16,14 +16,14 @@
   </output>
   <!-- Other classes to be compiled into your SWF -->
   <classpaths>
-    <class path="C:\HaxeToolkit\haxe\lib\actuate\1,8,3" />
-    <class path="C:\HaxeToolkit\haxe\lib\swf\1,8,0" />
-    <class path="C:\HaxeToolkit\haxe\lib\SpriterHaxeEngine\1,1,1" />
+    <class path="C:\HaxeToolkit\haxe\lib\actuate\1,8,4" />
+    <class path="C:\HaxeToolkit\haxe\lib\swf\1,8,4" />
+    <class path="C:\HaxeToolkit\haxe\lib\SpriterHaxeEngine\1,1,2" />
     <class path="C:\HaxeToolkit\haxe\lib\tilelayer\0,2,0" />
     <class path="C:\HaxeToolkit\haxe\lib\nape\2,0,16" />
     <class path="C:\HaxeToolkit\haxe\lib\BitmapFont\0,9,4" />
-    <class path="C:\HaxeToolkit\haxe\lib\lime\2,2,1" />
-    <class path="C:\HaxeToolkit\haxe\lib\openfl\3,0,0-beta" />
+    <class path="C:\HaxeToolkit\haxe\lib\lime\2,3,1" />
+    <class path="C:\HaxeToolkit\haxe\lib\openfl\3,0,1" />
     <class path="src" />
     <class path="gameCode" />
     <class path="samples" />
@@ -31,7 +31,7 @@
   </classpaths>
   <!-- Build options -->
   <build>
-    <option directives="actuate=1.8.3&#xA;swf=1.8.0&#xA;SpriterHaxeEngine=1.1.1&#xA;tilelayer=0.2.0&#xA;nape=2.0.16&#xA;bitmapFont=0.9.4&#xA;BitmapFont&#xA;lime=2.2.1&#xA;openfl=3.0.0-beta&#xA;openfl-next&#xA;tools=2.2.1&#xA;no-compilation&#xA;openfl-html5&#xA;canvas&#xA;RENDER_BLIT&#xA;lime-html5&#xA;html5&#xA;web&#xA;html5" />
+    <option directives="actuate=1.8.4&#xA;swf=1.8.4&#xA;SpriterHaxeEngine=1.1.2&#xA;tilelayer=0.2.0&#xA;nape=2.0.16&#xA;bitmapFont=0.9.4&#xA;BitmapFont&#xA;lime=2.3.1&#xA;openfl=3.0.1&#xA;openfl-next&#xA;tools=2.3.1&#xA;no-compilation&#xA;openfl-html5&#xA;canvas&#xA;RENDER_BLIT&#xA;lime-html5&#xA;html5&#xA;web&#xA;html5" />
     <option flashStrict="False" />
     <option noInlineOnDebug="False" />
     <option mainClass="ApplicationMain" />
