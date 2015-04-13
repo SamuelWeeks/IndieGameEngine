@@ -52,25 +52,25 @@ class Sample_Reverse extends GameController
 	override public function update():Void 
 	{
 		super.update();
-		if (Main.corePlayer1.btnUpPressed == true)
+		if (IGE.corePlayer1.btnUpPressed == true)
 		{
-			Main.coreSystemMessage.text = "upBtn";
-			Main.corePhysics.gravity = (new Vec2(0, -100));
+			IGE.coreSystemMessage.text = "upBtn";
+			IGE.corePhysics.gravity = (new Vec2(0, -100));
 		}
-		if (Main.corePlayer1.btnDownPressed == true)
+		if (IGE.corePlayer1.btnDownPressed == true)
 		{
-			Main.coreSystemMessage.text = "DownBtn";
-			Main.corePhysics.gravity = (new Vec2(0, 100));
+			IGE.coreSystemMessage.text = "DownBtn";
+			IGE.corePhysics.gravity = (new Vec2(0, 100));
 		}
-		if (Main.corePlayer1.btnLeftPressed == true)
+		if (IGE.corePlayer1.btnLeftPressed == true)
 		{
-			Main.coreSystemMessage.text = "leftBtn";
-			Main.corePhysics.gravity = (new Vec2(-100, 0.0));
+			IGE.coreSystemMessage.text = "leftBtn";
+			IGE.corePhysics.gravity = (new Vec2(-100, 0.0));
 		}
-		if (Main.corePlayer1.btnRightPressed == true)
+		if (IGE.corePlayer1.btnRightPressed == true)
 		{
-			Main.coreSystemMessage.text = "rightBtn";
-			Main.corePhysics.gravity = (new Vec2(100, 0.0));
+			IGE.coreSystemMessage.text = "rightBtn";
+			IGE.corePhysics.gravity = (new Vec2(100, 0.0));
 		}
 		
 	}

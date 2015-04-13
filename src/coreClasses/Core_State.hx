@@ -28,7 +28,7 @@ import spriter.engine.Spriter;
 
 	public function inputActionPressed(inc_Input:KeyboardEvent):Void 
 	{
-				Main.corePlayer1.inputActionPressed(inc_Input);
+				IGE.corePlayer1.inputActionPressed(inc_Input);
 				//pressing the a key loads a bitmap to the screen;
 				switch(inc_Input.keyCode)
 				{
@@ -55,32 +55,32 @@ import spriter.engine.Spriter;
 	
 	public function moveGameWindow(incMoveX:Int,incMoveY:Int):Void
 	{
-		if (Main.debugWindowFlag == true)
+		if (IGE.debugWindowFlag == true)
 		{
-			Main.layer_Spriter.x += (incMoveX * Main.coreDelta.delta);
-			Main.layer_Spriter.y += (incMoveY *Main.coreDelta.delta);
+			IGE.layer_Spriter.x += (incMoveX * IGE.coreDelta.delta);
+			IGE.layer_Spriter.y += (incMoveY *IGE.coreDelta.delta);
 			
 		}
 	}
 	
 	public function zoomGameWindowIn():Void
 	{
-		if (Main.debugWindowFlag == true)
+		if (IGE.debugWindowFlag == true)
 		{
-			Main.layer_GameWindow.scaleX += .1;
-			Main.layer_GameWindow.scaleY += .1;
+			IGE.layer_GameWindow.scaleX += .1;
+			IGE.layer_GameWindow.scaleY += .1;
 		}
 	}
 	
 	public function zoomGameWindowOut():Void
 	{
-		if (Main.debugWindowFlag == true)
+		if (IGE.debugWindowFlag == true)
 		{
-			Main.layer_GameWindow.scaleX -= .1;
-			Main.layer_GameWindow.scaleY -= .1;
+			IGE.layer_GameWindow.scaleX -= .1;
+			IGE.layer_GameWindow.scaleY -= .1;
 			
-			Main.layer_Spriter.scaleX -= .1;
-			Main.layer_Spriter.scaleY -= .1;
+			IGE.layer_Spriter.scaleX -= .1;
+			IGE.layer_Spriter.scaleY -= .1;
 			
 		}
 	}
@@ -88,17 +88,17 @@ import spriter.engine.Spriter;
 	public function toggleDebugWIndow():Void
 	{
 		
-		switch(Main.debugWindowFlag)
+		switch(IGE.debugWindowFlag)
 				{
 					case false:
 						{
-							Main.layer_Debug.visible = true;
-							Main.debugWindowFlag = true;
+							IGE.layer_Debug.visible = true;
+							IGE.debugWindowFlag = true;
 						}
 					case true:
 						{
-							Main.layer_Debug.visible = false;
-							Main.debugWindowFlag = false;
+							IGE.layer_Debug.visible = false;
+							IGE.debugWindowFlag = false;
 						}
 					
 				}
@@ -122,14 +122,14 @@ import spriter.engine.Spriter;
 		this.PhyBody.shapes.add(new Polygon(Polygon.box(40, 40)));
 		this.PhyBody.position.x = incX;
 		this.PhyBody.position.y = incY;
-		this.PhyBody.space = Main.corePhysics;
+		this.PhyBody.space = IGE.corePhysics;
 		
 		}
 		if (incName == "box2")
 		{
 		this.PhyBody = new Body(BodyType.DYNAMIC);
 		this.PhyBody.shapes.add(new Polygon(Polygon.box(40,40)));
-		this.PhyBody.space = Main.corePhysics;
+		this.PhyBody.space = IGE.corePhysics;
 		this.PhyBody.position.x = incX;
 		this.PhyBody.position.y = incY;
 		}
@@ -137,7 +137,7 @@ import spriter.engine.Spriter;
 	
 	public inline function inputActionReleased(inc_Input:KeyboardEvent):Void 
 	{
-				Main.corePlayer1.inputActionReleased(inc_Input);
+				IGE.corePlayer1.inputActionReleased(inc_Input);
 	}
 	
 	public function buildLevel(incLevelData:MovieClip):Void
@@ -156,9 +156,9 @@ import spriter.engine.Spriter;
 	//needs to be updated to really remove the game objects
 	public function destroyAllGameObjects():Void
 	{
-		while (Main.gameObjectGroup.length > 1 )
+		while (IGE.gameObjectGroup.length > 1 )
 		{
-			var objToDestroy:Core_GameObject = Main.gameObjectGroup.pop();
+			var objToDestroy:Core_GameObject = IGE.gameObjectGroup.pop();
 			objToDestroy.destroySelf();
 		}
 	}

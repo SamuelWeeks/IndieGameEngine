@@ -1,6 +1,6 @@
 package samples;
 import coreClasses.Core_State;
-import Main;
+import IGE;
 import openfl.display.Bitmap;
 import openfl.Assets;
 import openfl.display.MovieClip;

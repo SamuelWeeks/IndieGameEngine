@@ -14,7 +14,7 @@ class Core_MutiMessageWindow extends Sprite
 {
 
 	public var backgroundObject:Bitmap = new Bitmap();
-	public var textObject:BitmapTextField = new BitmapTextField(Main.coreFonts.Font_White);
+	public var textObject:BitmapTextField = new BitmapTextField(IGE.coreFonts.Font_White);
 	public var textNodes:Array<String> = new Array();
 	public var currentTextNode:Int = 0;
 	//public var backGroundImage:Bitmap = new Bitmap(Assets.getBitmapData("assets/content/testing/images/Tile_GenericGreen.png"));

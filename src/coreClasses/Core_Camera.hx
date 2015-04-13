@@ -25,8 +25,8 @@ class Core_Camera
 	{
 		if (this.followObect == null)
 		{
-			this.diffX = (Main.base_WindowWidth/2)*Main.scaleAmount;
-			this.diffY = (-Main.base_WindowHeight/2)*Main.scaleAmount;
+			this.diffX = (IGE.base_WindowWidth/2)*IGE.scaleAmount;
+			this.diffY = (-IGE.base_WindowHeight/2)*IGE.scaleAmount;
 			this.panX();
 			this.panY();
 			this.followObect = incObject;
@@ -45,8 +45,8 @@ class Core_Camera
 	
 	public function centerCameraOnFollowObject():Void
 	{
-		this.diffX = -this.followObect.sceneObject.info.x*Main.scaleAmount;
-		this.diffY = -this.followObect.sceneObject.info.y*Main.scaleAmount;
+		this.diffX = -this.followObect.sceneObject.info.x*IGE.scaleAmount;
+		this.diffY = -this.followObect.sceneObject.info.y*IGE.scaleAmount;
 		this.panX();
 		this.panY();
 	}
@@ -61,13 +61,13 @@ class Core_Camera
 			{
 				if (this.oldPosX < this.followObect.sceneObject.info.x)
 				{
-					this.diffX = (this.oldPosX - this.followObect.sceneObject.info.x)*Main.scaleAmount;
+					this.diffX = (this.oldPosX - this.followObect.sceneObject.info.x)*IGE.scaleAmount;
 					this.panX();
 					this.oldPosX = this.followObect.sceneObject.info.x;
 				}
 				if (this.oldPosX > this.followObect.sceneObject.info.x)
 				{
-					this.diffX = (this.oldPosX - this.followObect.sceneObject.info.x)*Main.scaleAmount;
+					this.diffX = (this.oldPosX - this.followObect.sceneObject.info.x)*IGE.scaleAmount;
 					this.panX();
 					this.oldPosX = this.followObect.sceneObject.info.x;
 				}
@@ -77,13 +77,13 @@ class Core_Camera
 			{
 				if (this.oldPosY < this.followObect.sceneObject.info.y)
 				{
-					this.diffY = (this.oldPosY - this.followObect.sceneObject.info.y)*Main.scaleAmount;
+					this.diffY = (this.oldPosY - this.followObect.sceneObject.info.y)*IGE.scaleAmount;
 					this.panY();
 					this.oldPosY = this.followObect.sceneObject.info.y;
 				}
 				if (this.oldPosY > this.followObect.sceneObject.info.y)
 				{
-					this.diffY = (this.oldPosY - this.followObect.sceneObject.info.y)*Main.scaleAmount;
+					this.diffY = (this.oldPosY - this.followObect.sceneObject.info.y)*IGE.scaleAmount;
 					this.panY();
 					this.oldPosY = this.followObect.sceneObject.info.y;
 				}
@@ -94,19 +94,19 @@ class Core_Camera
 	private function panX():Void
 	{
 		//pan x
-		Main.layer_Spriter.x += this.diffX;
-		Main.layer_GameWindow.x += this.diffX;
+		IGE.layer_Spriter.x += this.diffX;
+		IGE.layer_GameWindow.x += this.diffX;
 		#if flash
-		Main.debug_PhysicsDisplay.x += this.diffX;
+		IGE.debug_PhysicsDisplay.x += this.diffX;
 		#end
 	}
 	private function panY():Void
 	{
 		//pan y
-		Main.layer_Spriter.y -= this.diffY;
-		Main.layer_GameWindow.y -= this.diffY;
+		IGE.layer_Spriter.y -= this.diffY;
+		IGE.layer_GameWindow.y -= this.diffY;
 		#if flash
-		Main.debug_PhysicsDisplay.y -= this.diffY;
+		IGE.debug_PhysicsDisplay.y -= this.diffY;
 		#end
 	}
 	

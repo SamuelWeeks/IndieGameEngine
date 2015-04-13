@@ -6,7 +6,7 @@
 	<meta title="IGE" package="www.MyIndieStruggle.IGE" version="1.0.0" company="me" />
 	
 	<!-- output -->
-	<app main="Main" file="Core" path="bin" />
+	<app main="IGE" file="Core" path="bin" />
 	
 	<window background="#000000" fps="60" vsync="true"/>
 	<window  fullscreen="true"unless="mobile" />

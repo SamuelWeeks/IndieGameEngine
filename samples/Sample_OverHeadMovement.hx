@@ -23,17 +23,17 @@ class Sample_OverHeadMovement extends GameController
 	{
 		super();
 		this.buildLevel(Assets.getMovieClip("coreAssets:sample_OverHead"));
-		Main.corePhysics.gravity = (new Vec2(0.0, 0.0));
-		Main.coreCamera.setFollowObject(this.controlObject);
+		IGE.corePhysics.gravity = (new Vec2(0.0, 0.0));
+		IGE.coreCamera.setFollowObject(this.controlObject);
 		this.controlObject.RotateType = Core_GameObject.rotate_Normal;
 		this.controlObject.target = this.greenBox;
-		if (Main.coreSaveFile.data.positionX != null)
+		if (IGE.coreSaveFile.data.positionX != null)
 		{
-		this.controlObject.PhyBody.position.x = Main.coreSaveFile.data.positionX;
+		this.controlObject.PhyBody.position.x = IGE.coreSaveFile.data.positionX;
 		}
-		if ( Main.coreSaveFile.data.positionY != null)
+		if ( IGE.coreSaveFile.data.positionY != null)
 		{
-		this.controlObject.PhyBody.position.y = Main.coreSaveFile.data.positionY;
+		this.controlObject.PhyBody.position.y = IGE.coreSaveFile.data.positionY;
 		}
 		
 		/*var textObject:Core_Text = new Core_Text();
@@ -59,7 +59,7 @@ class Sample_OverHeadMovement extends GameController
 				case"dog":
 			}*/
 			var tilemap:MovieClip = (new Ast_WorldMap());
-			Main.layer_GameWindow.addChild(tilemap);
+			IGE.layer_GameWindow.addChild(tilemap);
 	}
 	
 	override public function playerBtnTapped(incPlayer:String, incBtn:String):Void 
@@ -69,9 +69,9 @@ class Sample_OverHeadMovement extends GameController
 		{
 			//this.controlObject.RotateType = Core_GameObject.rotate_ToTarget;
 			//this.controlObject.doRayCast(this.controlObject.target.PhyBody.position, 1000);
-			Main.coreSaveFile.data.positionX = this.controlObject.PhyBody.position.x;
-			Main.coreSaveFile.data.positionY = this.controlObject.PhyBody.position.y;
-			Main.coreSaveFile.flush();
+			IGE.coreSaveFile.data.positionX = this.controlObject.PhyBody.position.x;
+			IGE.coreSaveFile.data.positionY = this.controlObject.PhyBody.position.y;
+			IGE.coreSaveFile.flush();
 			this.controlObject.doAnimation("base");
 			
 		}

@@ -62,7 +62,7 @@ import openfl.Lib;
 		//this.sceneObject.info.scaleX = incObject.scaleX;
 		//this.sceneObject.info.scaleY = incObject.scaleY;
 		this.applyRigidBody(incObject, incPhyBodyType, incObject.rotation);
-		Main.gameObjectGroup.push(this);
+		IGE.gameObjectGroup.push(this);
 		this.update();
 	}
 	
@@ -74,9 +74,9 @@ import openfl.Lib;
 	
 	public function setSpriterObject(incObject:DisplayObject):Void
 	{
-		Main.spriterEngine.addEntity(this.gameObjName, incObject.x, incObject.y);
-		Main.spriterEngine.getEntity(this.gameObjName).playAnimFromEntity(this.enityName, this.anim_Base, this.animationEnd);
-		this.sceneObject = Main.spriterEngine.getEntity(this.gameObjName);
+		IGE.spriterEngine.addEntity(this.gameObjName, incObject.x, incObject.y);
+		IGE.spriterEngine.getEntity(this.gameObjName).playAnimFromEntity(this.enityName, this.anim_Base, this.animationEnd);
+		this.sceneObject = IGE.spriterEngine.getEntity(this.gameObjName);
 		this.sceneObject.info.scaleX = incObject.scaleX;
 		this.sceneObject.info.scaleY = incObject.scaleY;
 		if (incObject.scaleX > 1)
@@ -94,14 +94,14 @@ import openfl.Lib;
 	
 	public function setGameObjName():Void
 	{
-		this.gameObjName = Std.string(Main.nextGameObjectName);
-		Main.nextGameObjectName += 1;
+		this.gameObjName = Std.string(IGE.nextGameObjectName);
+		IGE.nextGameObjectName += 1;
 	}
 	
 	public function destroySelf():Void
 	{
-		Main.spriterEngine.removeEntity(this.gameObjName);
-		Main.corePhysics.bodies.remove(this.PhyBody);
+		IGE.spriterEngine.removeEntity(this.gameObjName);
+		IGE.corePhysics.bodies.remove(this.PhyBody);
 	}
 	
 	public function applyRigidBody(incObject:DisplayObject,incPhyBodyType:String,incObjectRotation:Dynamic):Void
@@ -118,7 +118,7 @@ import openfl.Lib;
 						this.PhyBody.position.x = incObject.x;
 						this.PhyBody.position.y = incObject.y;
 						this.PhyBody.rotation =   incObjectRotation * Math.PI / 180;
-						this.PhyBody.space = Main.corePhysics;
+						this.PhyBody.space = IGE.corePhysics;
 						trace(incObject.width);
 						trace(incObject.height);
 						trace(incObject.rotation);
@@ -130,7 +130,7 @@ import openfl.Lib;
 						this.PhyBody.position.x = incObject.x;
 						this.PhyBody.position.y = incObject.y;
 						this.PhyBody.rotation =    incObjectRotation * Math.PI / 180;
-						this.PhyBody.space = Main.corePhysics;
+						this.PhyBody.space = IGE.corePhysics;
 					}
 				case "body_Kinematic":
 					{
@@ -139,7 +139,7 @@ import openfl.Lib;
 						this.PhyBody.position.x = incObject.x;
 						this.PhyBody.position.y = incObject.y;
 						this.PhyBody.rotation =   incObjectRotation * Math.PI / 180;
-						this.PhyBody.space = Main.corePhysics;
+						this.PhyBody.space = IGE.corePhysics;
 					}
 			}
 		}
@@ -155,7 +155,7 @@ import openfl.Lib;
 						this.PhyBody.position.x = incObject.x;
 						this.PhyBody.position.y = incObject.y;
 						this.PhyBody.rotation =   incObjectRotation * Math.PI / 180;
-						this.PhyBody.space = Main.corePhysics;
+						this.PhyBody.space = IGE.corePhysics;
 						trace(incObject.width);
 						trace(incObject.height);
 						trace(incObject.rotation);
@@ -167,7 +167,7 @@ import openfl.Lib;
 						this.PhyBody.position.x = incObject.x;
 						this.PhyBody.position.y = incObject.y;
 						this.PhyBody.rotation =    incObjectRotation * Math.PI / 180;
-						this.PhyBody.space = Main.corePhysics;
+						this.PhyBody.space = IGE.corePhysics;
 					}
 				case "body_Kinematic":
 					{
@@ -176,7 +176,7 @@ import openfl.Lib;
 						this.PhyBody.position.x = incObject.x;
 						this.PhyBody.position.y = incObject.y;
 						this.PhyBody.rotation =   incObjectRotation * Math.PI / 180;
-						this.PhyBody.space = Main.corePhysics;
+						this.PhyBody.space = IGE.corePhysics;
 					}
 			}
 		}
@@ -196,8 +196,8 @@ import openfl.Lib;
 	
 	public function thumbStickDirectionMove(incMovementSpeed:Float):Void
 	{
-		this.PhyBody.position.x += Main.coreState.gamePad.x * incMovementSpeed;
-		this.PhyBody.position.y += Main.coreState.gamePad.y * incMovementSpeed;
+		this.PhyBody.position.x += IGE.coreState.gamePad.x * incMovementSpeed;
+		this.PhyBody.position.y += IGE.coreState.gamePad.y * incMovementSpeed;
 		
 	}
 	
@@ -211,7 +211,7 @@ import openfl.Lib;
 	{
 		this.ray_Line = Ray.fromSegment(this.PhyBody.position, incTargetPosition);
 		this.ray_Line.maxDistance = incDistance;
-		this.ray_Flag = Main.corePhysics.rayCast(this.ray_Line);
+		this.ray_Flag = IGE.corePhysics.rayCast(this.ray_Line);
 		if(ray_Flag != null)
 		{
 			trace(ray_Flag.distance+" yes!!!!!!!!!!!!!!!!!!!!!!!!!");
@@ -220,7 +220,7 @@ import openfl.Lib;
 		this.ray_Flag = null;
 		
 		var raySprite:Sprite = new Sprite();
-		Main.layer_GameWindow.addChild(raySprite);
+		IGE.layer_GameWindow.addChild(raySprite);
 		raySprite.graphics.clear();
 		raySprite.graphics.lineStyle(1);
 		raySprite.graphics.moveTo(this.PhyBody.position.x, this.PhyBody.position.y);
@@ -232,7 +232,7 @@ import openfl.Lib;
 	
 			if (this.addedToUpdateGroup == false)
 			{
-				Main.updateGroup.push(this);
+				IGE.updateGroup.push(this);
 				this.addedToUpdateGroup = true;
 			}
 			if (this.sceneObject.info != null)
@@ -271,7 +271,7 @@ import openfl.Lib;
 					
 				case "thumbStick":
 					{
-						this.PhyBody.rotation = -(Main.coreState.gamePad.angle) +this.degreeToRad90 ;
+						this.PhyBody.rotation = -(IGE.coreState.gamePad.angle) +this.degreeToRad90 ;
 					}
 				case "forwardMovement":
 					{

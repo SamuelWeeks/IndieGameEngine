@@ -101,7 +101,7 @@ import openfl.events.KeyboardEvent;
 	}
 	public function addToUpdateGroup():Void
 	{
-		Main.updateGroup.push(this);
+		IGE.updateGroup.push(this);
 		this.setButtonsPressedToFalse();
 	}
 	
@@ -113,7 +113,7 @@ import openfl.events.KeyboardEvent;
 					if (this.btnUpPressed == false)
 					{
 						this.btnUpPressed = true;
-						Main.coreState.playerBtnTapped(this.playerName, "btnUp");
+						IGE.coreState.playerBtnTapped(this.playerName, "btnUp");
 					}
 				}
 			//BtnDown---------------------------------------------------
@@ -122,7 +122,7 @@ import openfl.events.KeyboardEvent;
 					if (this.btnDownPressed == false)
 					{
 						this.btnDownPressed = true;
-						Main.coreState.playerBtnTapped(this.playerName, "btnDown");
+						IGE.coreState.playerBtnTapped(this.playerName, "btnDown");
 					}
 				}
 			//btnLeft-----------------------------------------------
@@ -131,7 +131,7 @@ import openfl.events.KeyboardEvent;
 					if (this.btnLeftPressed == false)
 					{
 						this.btnLeftPressed = true;
-						Main.coreState.playerBtnTapped(this.playerName, "btnLeft");
+						IGE.coreState.playerBtnTapped(this.playerName, "btnLeft");
 					}
 				}
 			//btnRight-----------------------------------------------
@@ -140,7 +140,7 @@ import openfl.events.KeyboardEvent;
 					if (this.btnRightPressed == false)
 					{
 						this.btnRightPressed = true;
-						Main.coreState.playerBtnTapped(this.playerName, "btnRight");
+						IGE.coreState.playerBtnTapped(this.playerName, "btnRight");
 					}
 				}
 			//Button1-----------------------------------------------
@@ -149,7 +149,7 @@ import openfl.events.KeyboardEvent;
 					if (this.btn1Pressed == false)
 					{
 						this.btn1Pressed = true;
-						Main.coreState.playerBtnTapped(this.playerName, "btn1");
+						IGE.coreState.playerBtnTapped(this.playerName, "btn1");
 					}
 				}
 				//Button2-----------------------------------------------
@@ -158,7 +158,7 @@ import openfl.events.KeyboardEvent;
 					if (this.btn2Pressed == false)
 					{
 						this.btn2Pressed = true;
-						Main.coreState.playerBtnTapped(this.playerName, "btn2");
+						IGE.coreState.playerBtnTapped(this.playerName, "btn2");
 					}
 				}
 				//Button3-----------------------------------------------
@@ -167,7 +167,7 @@ import openfl.events.KeyboardEvent;
 					if (this.btn3Pressed == false)
 					{
 						this.btn3Pressed = true;
-						Main.coreState.playerBtnTapped(this.playerName, "btn3");
+						IGE.coreState.playerBtnTapped(this.playerName, "btn3");
 					}
 				}
 				//Button4-----------------------------------------------
@@ -176,7 +176,7 @@ import openfl.events.KeyboardEvent;
 					if (this.btn4Pressed == false)
 					{
 						this.btn4Pressed = true;
-						Main.coreState.playerBtnTapped(this.playerName, "btn4");
+						IGE.coreState.playerBtnTapped(this.playerName, "btn4");
 					}
 				}
 	}
@@ -188,49 +188,49 @@ import openfl.events.KeyboardEvent;
 			if (inc_Input.keyCode == btnUp)
 				{
 					this.btnUpPressed = false;
-					Main.coreState.playerBtnUnTapped(this.playerName, "btnUp");
+					IGE.coreState.playerBtnUnTapped(this.playerName, "btnUp");
 				}
 			//BtnDown---------------------------------------------------
 			if (inc_Input.keyCode == btnDown)
 				{
 					this.btnDownPressed = false;
-					Main.coreState.playerBtnUnTapped(this.playerName, "btnDown");
+					IGE.coreState.playerBtnUnTapped(this.playerName, "btnDown");
 				}
 			//btnLeft-----------------------------------------------
 			if (inc_Input.keyCode == btnLeft)
 				{
 					this.btnLeftPressed = false;
-					Main.coreState.playerBtnUnTapped(this.playerName, "btnLeft");
+					IGE.coreState.playerBtnUnTapped(this.playerName, "btnLeft");
 				}
 			//btnRight-----------------------------------------------
 			if (inc_Input.keyCode == btnRight)
 				{
 					this.btnRightPressed = false;
-					Main.coreState.playerBtnUnTapped(this.playerName, "btnRight");
+					IGE.coreState.playerBtnUnTapped(this.playerName, "btnRight");
 				}
 			//Button1-----------------------------------------------
 			if (inc_Input.keyCode == btn1)
 				{
 					this.btn1Pressed = false;
-					Main.coreState.playerBtnUnTapped(this.playerName, "btn1");
+					IGE.coreState.playerBtnUnTapped(this.playerName, "btn1");
 				}
 				//Button2-----------------------------------------------
 			if (inc_Input.keyCode == btn2)
 				{
 					this.btn2Pressed = false;
-					Main.coreState.playerBtnUnTapped(this.playerName, "btn2");
+					IGE.coreState.playerBtnUnTapped(this.playerName, "btn2");
 				}
 				//Button3-----------------------------------------------
 			if (inc_Input.keyCode == btn3)
 				{
 					this.btn3Pressed = false;
-					Main.coreState.playerBtnUnTapped(this.playerName, "btn3");
+					IGE.coreState.playerBtnUnTapped(this.playerName, "btn3");
 				}
 				//Button4-----------------------------------------------
 			if (inc_Input.keyCode == btn4)
 				{
 					this.btn4Pressed = false;
-					Main.coreState.playerBtnUnTapped(this.playerName, "btn4");
+					IGE.coreState.playerBtnUnTapped(this.playerName, "btn4");
 				}
 	}
 

@@ -22,7 +22,7 @@ class Sample_Showtext extends GameController
 		super();
 		
 		
-		Main.layer_OverLay.addChild(this.textObject.textField);
+		IGE.layer_OverLay.addChild(this.textObject.textField);
 		
 	}
 	

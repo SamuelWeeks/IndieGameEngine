@@ -70,9 +70,9 @@ class GameController extends Core_State
 	//-----------------------------------------------------
 	public function addGuiControls():Void
 	{
-			Main.layer_OverLay.addChild(gui);
+			IGE.layer_OverLay.addChild(gui);
 			this.gui.alpha = .5;
-			this.gui.x = Lib.current.stage.stageWidth + Main.layeroffSetAmount;
+			this.gui.x = Lib.current.stage.stageWidth + IGE.layeroffSetAmount;
 			//this.gui.x += (Main.layeroffSetAmount) *2;
 			this.gui.y = 525;
 	}
@@ -84,68 +84,68 @@ class GameController extends Core_State
 		
 		if (e.target == this.gui.getChildByName("btnUp"))
 		{
-			if (Main.corePlayer1.btnUpPressed == false)
+			if (IGE.corePlayer1.btnUpPressed == false)
 					{
-						Main.corePlayer1.btnUpPressed = true;
-						Main.coreState.playerBtnTapped(Main.corePlayer1.playerName, "btnUp");
+						IGE.corePlayer1.btnUpPressed = true;
+						IGE.coreState.playerBtnTapped(IGE.corePlayer1.playerName, "btnUp");
 					}
 		}
 		
 		if (e.target == this.gui.getChildByName("btnDown"))
 		{
-			if (Main.corePlayer1.btnDownPressed == false)
+			if (IGE.corePlayer1.btnDownPressed == false)
 					{
-						Main.corePlayer1.btnDownPressed = true;
-						Main.coreState.playerBtnTapped(Main.corePlayer1.playerName, "btnDowm");
+						IGE.corePlayer1.btnDownPressed = true;
+						IGE.coreState.playerBtnTapped(IGE.corePlayer1.playerName, "btnDowm");
 					}
 		}
 		
 		if (e.target == this.gui.getChildByName("btnLeft"))
 		{
-			if (Main.corePlayer1.btnLeftPressed == false)
+			if (IGE.corePlayer1.btnLeftPressed == false)
 					{
-						Main.corePlayer1.btnLeftPressed = true;
-						Main.coreState.playerBtnTapped(Main.corePlayer1.playerName, "btnLeft");
+						IGE.corePlayer1.btnLeftPressed = true;
+						IGE.coreState.playerBtnTapped(IGE.corePlayer1.playerName, "btnLeft");
 					}
 		}
 		if (e.target == this.gui.getChildByName("btnRight"))
 		{
-			if (Main.corePlayer1.btnRightPressed == false)
+			if (IGE.corePlayer1.btnRightPressed == false)
 					{
-						Main.corePlayer1.btnRightPressed = true;
-						Main.coreState.playerBtnTapped(Main.corePlayer1.playerName, "btnRight");
+						IGE.corePlayer1.btnRightPressed = true;
+						IGE.coreState.playerBtnTapped(IGE.corePlayer1.playerName, "btnRight");
 					}
 		}
 		if (e.target == this.gui.getChildByName("btn1"))
 		{
-			if (Main.corePlayer1.btn1Pressed == false)
+			if (IGE.corePlayer1.btn1Pressed == false)
 					{
-						Main.corePlayer1.btn1Pressed = true;
-						Main.coreState.playerBtnTapped(Main.corePlayer1.playerName, "btn1");
+						IGE.corePlayer1.btn1Pressed = true;
+						IGE.coreState.playerBtnTapped(IGE.corePlayer1.playerName, "btn1");
 					}
 		}
 		if (e.target == this.gui.getChildByName("btn2"))
 		{
-			if (Main.corePlayer1.btn2Pressed == false)
+			if (IGE.corePlayer1.btn2Pressed == false)
 					{
-						Main.corePlayer1.btn2Pressed = true;
-						Main.coreState.playerBtnTapped(Main.corePlayer1.playerName, "btn2");
+						IGE.corePlayer1.btn2Pressed = true;
+						IGE.coreState.playerBtnTapped(IGE.corePlayer1.playerName, "btn2");
 					}
 		}
 		if (e.target == this.gui.getChildByName("btn3"))
 		{
-			if (Main.corePlayer1.btn3Pressed == false)
+			if (IGE.corePlayer1.btn3Pressed == false)
 					{
-						Main.corePlayer1.btn3Pressed = true;
-						Main.coreState.playerBtnTapped(Main.corePlayer1.playerName, "btn3");
+						IGE.corePlayer1.btn3Pressed = true;
+						IGE.coreState.playerBtnTapped(IGE.corePlayer1.playerName, "btn3");
 					}
 		}
 		if (e.target == this.gui.getChildByName("btn4"))
 		{
-			if (Main.corePlayer1.btn4Pressed == false)
+			if (IGE.corePlayer1.btn4Pressed == false)
 					{
-						Main.corePlayer1.btn4Pressed = true;
-						Main.coreState.playerBtnTapped(Main.corePlayer1.playerName, "btn4");
+						IGE.corePlayer1.btn4Pressed = true;
+						IGE.coreState.playerBtnTapped(IGE.corePlayer1.playerName, "btn4");
 					}
 		}
 	}
@@ -154,43 +154,43 @@ class GameController extends Core_State
 	{
 		if (e.target == this.gui.getChildByName("btnUp"))
 		{
-			Main.corePlayer1.btnUpPressed = false;
-			Main.coreState.playerBtnUnTapped(Main.corePlayer1.playerName, "btnUp");
+			IGE.corePlayer1.btnUpPressed = false;
+			IGE.coreState.playerBtnUnTapped(IGE.corePlayer1.playerName, "btnUp");
 		}
 		if (e.target == this.gui.getChildByName("btnDown"))
 		{
-			Main.corePlayer1.btnDownPressed = false;
-			Main.coreState.playerBtnUnTapped(Main.corePlayer1.playerName, "btnDown");
+			IGE.corePlayer1.btnDownPressed = false;
+			IGE.coreState.playerBtnUnTapped(IGE.corePlayer1.playerName, "btnDown");
 		}
 		if (e.target == this.gui.getChildByName("btnLeft"))
 		{
-			Main.corePlayer1.btnLeftPressed = false;
-			Main.coreState.playerBtnUnTapped(Main.corePlayer1.playerName, "btnLeft");
+			IGE.corePlayer1.btnLeftPressed = false;
+			IGE.coreState.playerBtnUnTapped(IGE.corePlayer1.playerName, "btnLeft");
 		}
 		if (e.target == this.gui.getChildByName("btnRight"))
 		{
-			Main.corePlayer1.btnRightPressed = false;
-			Main.coreState.playerBtnUnTapped(Main.corePlayer1.playerName, "btnRight");
+			IGE.corePlayer1.btnRightPressed = false;
+			IGE.coreState.playerBtnUnTapped(IGE.corePlayer1.playerName, "btnRight");
 		}
 		if (e.target == this.gui.getChildByName("btn1"))
 		{
-			Main.corePlayer1.btn1Pressed = false;
-			Main.coreState.playerBtnUnTapped(Main.corePlayer1.playerName, "btn1");
+			IGE.corePlayer1.btn1Pressed = false;
+			IGE.coreState.playerBtnUnTapped(IGE.corePlayer1.playerName, "btn1");
 		}
 		if (e.target == this.gui.getChildByName("btn2"))
 		{
-			Main.corePlayer1.btn2Pressed = false;
-			Main.coreState.playerBtnUnTapped(Main.corePlayer1.playerName, "btn2");
+			IGE.corePlayer1.btn2Pressed = false;
+			IGE.coreState.playerBtnUnTapped(IGE.corePlayer1.playerName, "btn2");
 		}
 		if (e.target == this.gui.getChildByName("btn3"))
 		{
-			Main.corePlayer1.btn3Pressed = false;
-			Main.coreState.playerBtnUnTapped(Main.corePlayer1.playerName, "btn3");
+			IGE.corePlayer1.btn3Pressed = false;
+			IGE.coreState.playerBtnUnTapped(IGE.corePlayer1.playerName, "btn3");
 		}
 		if (e.target == this.gui.getChildByName("btn4"))
 		{
-			Main.corePlayer1.btn4Pressed = false;
-			Main.coreState.playerBtnUnTapped(Main.corePlayer1.playerName, "btn4");
+			IGE.corePlayer1.btn4Pressed = false;
+			IGE.coreState.playerBtnUnTapped(IGE.corePlayer1.playerName, "btn4");
 		}
 	}
 
@@ -214,7 +214,7 @@ class GameController extends Core_State
 	#if flash
 		//make thumbstick
 		this.gamePadView = new OnScreenJoystick();
-		Main.layer_OverLay.addChild(this.gamePadView);
+		IGE.layer_OverLay.addChild(this.gamePadView);
 		this.thumbStick.graphics.beginFill(0xEC0000,.5);
 		this.thumbStick.graphics.drawCircle(25, 25, 25);
 		this.thumbStick.scaleX = 2.5;
@@ -235,7 +235,7 @@ class GameController extends Core_State
 	#if !flash
 		//make thumbstick
 		this.gamePadView = new OnScreenJoystick();
-		Main.layer_OverLay.addChild(this.gamePadView);
+		IGE.layer_OverLay.addChild(this.gamePadView);
 		this.thumbStick.graphics.beginFill(0xEC0000,.5);
 		this.thumbStick.graphics.drawCircle(25, 25, 25);
 		this.thumbStick.scaleX = 2.5;
