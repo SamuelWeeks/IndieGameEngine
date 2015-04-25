@@ -165,6 +165,11 @@ import spriter.engine.Spriter;
 	
 	public function parseLevelData(incCurrentObject:DisplayObject):Void
 	{
+		if (incCurrentObject.name == "camera")
+		{
+			IGE.coreCamera.cameraObject = new Core_GameObject(incCurrentObject, "base_Sphere", Core_GameObject.body_Kinematic, Core_GameObject.bodyShape_Sphere, incCurrentObject.x, incCurrentObject.y);
+			IGE.coreCamera.setFollowObject(IGE.coreCamera.cameraObject);
+		}
 		/*switch(incCurrentObject.name)
 			{
 				case "green":this.createEnity("thing", incCurrentObject.x, incCurrentObject.y, "greenBox", "idle", "box");

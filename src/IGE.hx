@@ -34,60 +34,19 @@ import openfl.Lib;
 
 class IGE extends Sprite 
 {
-	var inited:Bool;
-
-	/* ENTRY POINT */
-	
-	function resize(e) 
-	{
-		if (!inited) init();
-		else
-		{
-		changeScreenSize();
-		}
-	}
-	
-	function init() 
-	{
-		changeScreenSize();
-		if (inited) return;
-		inited = true;
-
-		// (your code here)
-		this.startGame();
-		// Stage:
-		// stage.stageWidth x stage.stageHeight @ stage.dpiScale
-		
-		// Assets:
-		// nme.Assets.getBitmapData("img/assetname.jpg");
-		
-	}
-
-	/* SETUP */
 
 	public function new() 
 	{
 		super();	
-		addEventListener(Event.ADDED_TO_STAGE, added);
-	}
-
-	function added(e) 
-	{
-		removeEventListener(Event.ADDED_TO_STAGE, added);
-		stage.addEventListener(Event.RESIZE, resize);
-		#if ios
-		haxe.Timer.delay(init, 100); // iOS 6
-		#else
-		init();
-		#end
+		stage.addEventListener(Event.RESIZE, this.changeScreenSize);
+		this.prepareGame();
+		this.startGame();
 	}
 	
-	public static function main() 
+	public function startGame():Void
 	{
-		// static entry point
-		Lib.current.stage.align = flash.display.StageAlign.TOP_LEFT;
-		Lib.current.stage.scaleMode = flash.display.StageScaleMode.NO_SCALE;
-		Lib.current.addChild(new IGE());
+		
+		IGE.coreState = new BraggingRights();
 	}
 	
 	//debug
@@ -98,7 +57,7 @@ class IGE extends Sprite
 	//physics-----------------------------
 	static public var corePhysics:Space = new Space(new Vec2(0, 100));
 	#if flash
-	static public var debug_Physics:Debug = new BitmapDebug(800, 600,0x333333);
+	static public var debug_Physics:Debug = new BitmapDebug(800, 550,0x333333);
 	static public var debug_PhysicsDisplay:DisplayObject = debug_Physics.display;
 	#end
 	//layers-------------------------------------------
@@ -153,7 +112,7 @@ class IGE extends Sprite
 		this.addChild(layer_Spriter);
 		this.addChild(layer_OverLay);
 		#if flash
-		IGE.layer_OverLay.addChild(debug_PhysicsDisplay);
+		this.addChild(debug_PhysicsDisplay);
 		#end
 		this.addChild(layer_Debug);
 		IGE.layer_Debug.addChild(new FPS());
@@ -164,42 +123,8 @@ class IGE extends Sprite
 		//coreSystemMessage.text = "sajhdajdikahkafkdafa";
 		//
 		
-		this.loadAssets();
 		this.configInputs();
 		this.startFrameUpdate();
-	}
-	
-	public function loadAssets()
-	{
-		//Assets.loadLibrary("Pet", onLibLoaded);
-		
-		/*Assets.loadLibrary ("coreAssets", function (_) {
-			
-			//var layout = Assets.getMovieClip ("layout:Layout");
-			//var layerObject:MovieClip = Assets.getMovieClip("coreAssets:layer");
-			//Main.layer_OverLay.addChild(layerObject);
-			
-		});*/
-	}
-
-	/*public function onLibLoaded(incSwf:AssetLibrary):Void
-	{
-		CGE.coreAssets = incSwf;
-		this.startGame();
-		
-		var debugWindow:MovieClip = CGE.coreAssets.getMovieClip("text");
-		layer_OverLay.addChild(debugWindow);
-		trace(debugWindow.getChildByName("text"));*/
-		/*var clip:MovieClip = CGE.coreAssets.getMovieClip("three");
-		layer_OverLay.addChild(clip);
-		clip.stop();
-		trace(CGE.coreAssets.getMovieClip("three") + "!!!!!!");*/
-		
-	//}
-	public function startGame():Void
-	{
-		this.prepareGame();
-		Main.entryState();
 	}
 	
 	public function configInputs():Void
@@ -229,7 +154,7 @@ class IGE extends Sprite
 		IGE.update();
 	}
 	
-		public function changeScreenSize():Void
+		public function changeScreenSize(E:Event):Void
 	{
 		//this centers the spriter lyer, it seems to only work perfectly in html5, or in
 		//openfl when its on its default window size. when full screen the scaling is off by just alittle
@@ -277,29 +202,24 @@ class IGE extends Sprite
 	
 	public function ScaleWindowlayers():Void
 	{
-		IGE.layer_OverLay.scaleX = Math.round(IGE.scaleAmount);
-		IGE.layer_OverLay.scaleY = Math.round(IGE.scaleAmount);
+
 		IGE.layer_OverLay.scaleX = IGE.scaleAmount;
 		IGE.layer_OverLay.scaleY = IGE.scaleAmount;
 		
-		IGE.layer_GameWindow.scaleX = Math.round(IGE.scaleAmount);
-		IGE.layer_GameWindow.scaleY = Math.round(IGE.scaleAmount);
+	
 		IGE.layer_GameWindow.scaleX = IGE.scaleAmount;
 		IGE.layer_GameWindow.scaleY = IGE.scaleAmount;
 		
-		IGE.layer_Spriter.scaleX = Math.round(IGE.scaleAmount);
-		IGE.layer_Spriter.scaleY = Math.round(IGE.scaleAmount);
+		
 		IGE.layer_Spriter.scaleX = IGE.scaleAmount;
 		IGE.layer_Spriter.scaleY = IGE.scaleAmount;
 		#if flash
-		IGE.debug_PhysicsDisplay.scaleX = Math.round(IGE.scaleAmount);
-		IGE.debug_PhysicsDisplay.scaleY = Math.round(IGE.scaleAmount);
+
 		IGE.debug_PhysicsDisplay.scaleX = IGE.scaleAmount;
 		IGE.debug_PhysicsDisplay.scaleY = IGE.scaleAmount;
 		#end
 		
-		IGE.layer_Debug.scaleX = Math.round(IGE.scaleAmount);
-		IGE.layer_Debug.scaleY = Math.round(IGE.scaleAmount);
+		
 		IGE.layer_Debug.scaleX = IGE.scaleAmount;
 		IGE.layer_Debug.scaleY = IGE.scaleAmount;
 	}
@@ -333,7 +253,6 @@ class IGE extends Sprite
 		IGE.debugPhysicsDraw();
 		//delta----
 		IGE.coreDelta.update();
-		trace("deltatime!!!!" + IGE.coreDelta.delta);
 		if (IGE.coreDelta.delta > 0)
 		{
 		IGE.corePhysics.step(IGE.coreDelta.delta, 60);

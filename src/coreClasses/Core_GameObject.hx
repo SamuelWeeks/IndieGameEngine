@@ -49,7 +49,7 @@ import openfl.Lib;
 	public var ray_Intersection:Vec2;
 	public var ray_Flag:RayResult;
 	
-	public function new(incObject:DisplayObject,incEnityName:String,incPhyBodyType:String,incPhyBodyShape:String) 
+	public function new(incObject:DisplayObject,incEnityName:String,incPhyBodyType:String,incPhyBodyShape:String,incX:Float,incY:Float) 
 	{
 		this.enityName = incEnityName;
 		this.currenntBodyShape = incPhyBodyShape;
@@ -61,7 +61,7 @@ import openfl.Lib;
 		//this.sceneObject = Main.spriterEngine.getEntity(this.gameObjName);
 		//this.sceneObject.info.scaleX = incObject.scaleX;
 		//this.sceneObject.info.scaleY = incObject.scaleY;
-		this.applyRigidBody(incObject, incPhyBodyType, incObject.rotation);
+		this.applyRigidBody(incObject, incPhyBodyType, incObject.rotation,incX,incY);
 		IGE.gameObjectGroup.push(this);
 		this.update();
 	}
@@ -104,7 +104,7 @@ import openfl.Lib;
 		IGE.corePhysics.bodies.remove(this.PhyBody);
 	}
 	
-	public function applyRigidBody(incObject:DisplayObject,incPhyBodyType:String,incObjectRotation:Dynamic):Void
+	public function applyRigidBody(incObject:DisplayObject,incPhyBodyType:String,incObjectRotation:Dynamic,incX:Float,incY:Float):Void
 	{
 	
 		if (this.currenntBodyShape == Core_GameObject.bodyShape_Box)
@@ -115,8 +115,8 @@ import openfl.Lib;
 					{
 						this.PhyBody = new Body(BodyType.STATIC);
 						this.PhyBody.shapes.add(new Polygon(Polygon.box(incObject.width, incObject.height)));
-						this.PhyBody.position.x = incObject.x;
-						this.PhyBody.position.y = incObject.y;
+						this.PhyBody.position.x = incX;
+						this.PhyBody.position.y = incY;
 						this.PhyBody.rotation =   incObjectRotation * Math.PI / 180;
 						this.PhyBody.space = IGE.corePhysics;
 						trace(incObject.width);
@@ -127,8 +127,8 @@ import openfl.Lib;
 					{
 						this.PhyBody = new Body(BodyType.DYNAMIC);
 						this.PhyBody.shapes.add(new Polygon(Polygon.box(incObject.width, incObject.height)));
-						this.PhyBody.position.x = incObject.x;
-						this.PhyBody.position.y = incObject.y;
+						this.PhyBody.position.x = incX;
+						this.PhyBody.position.y = incY;
 						this.PhyBody.rotation =    incObjectRotation * Math.PI / 180;
 						this.PhyBody.space = IGE.corePhysics;
 					}
@@ -136,8 +136,8 @@ import openfl.Lib;
 					{
 						this.PhyBody = new Body(BodyType.KINEMATIC);
 						this.PhyBody.shapes.add(new Polygon(Polygon.box(incObject.width, incObject.height)));
-						this.PhyBody.position.x = incObject.x;
-						this.PhyBody.position.y = incObject.y;
+						this.PhyBody.position.x = incX;
+						this.PhyBody.position.y = incY;
 						this.PhyBody.rotation =   incObjectRotation * Math.PI / 180;
 						this.PhyBody.space = IGE.corePhysics;
 					}
@@ -152,8 +152,8 @@ import openfl.Lib;
 					{
 						this.PhyBody = new Body(BodyType.STATIC);
 						this.PhyBody.shapes.add(new Circle(incObject.width/2));
-						this.PhyBody.position.x = incObject.x;
-						this.PhyBody.position.y = incObject.y;
+						this.PhyBody.position.x = incX;
+						this.PhyBody.position.y = incY;
 						this.PhyBody.rotation =   incObjectRotation * Math.PI / 180;
 						this.PhyBody.space = IGE.corePhysics;
 						trace(incObject.width);
@@ -164,8 +164,8 @@ import openfl.Lib;
 					{
 						this.PhyBody = new Body(BodyType.DYNAMIC);
 						this.PhyBody.shapes.add(new Circle(incObject.width/2));
-						this.PhyBody.position.x = incObject.x;
-						this.PhyBody.position.y = incObject.y;
+						this.PhyBody.position.x = incX;
+						this.PhyBody.position.y = incY;
 						this.PhyBody.rotation =    incObjectRotation * Math.PI / 180;
 						this.PhyBody.space = IGE.corePhysics;
 					}
@@ -173,8 +173,8 @@ import openfl.Lib;
 					{
 						this.PhyBody = new Body(BodyType.KINEMATIC);
 						this.PhyBody.shapes.add(new Circle(incObject.width/2));
-						this.PhyBody.position.x = incObject.x;
-						this.PhyBody.position.y = incObject.y;
+						this.PhyBody.position.x = incX;
+						this.PhyBody.position.y = incY;
 						this.PhyBody.rotation =   incObjectRotation * Math.PI / 180;
 						this.PhyBody.space = IGE.corePhysics;
 					}

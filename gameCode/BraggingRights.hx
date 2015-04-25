@@ -19,7 +19,6 @@ class BraggingRights extends GameController
 		super();
 		this.buildLevel(Assets.getMovieClip("coreAssets:Ast_WorldMap"));
 		this.loadWorldMap();
-		this.setDefaultCamera();
 	}
 	
 	public function loadWorldMap():Void
@@ -29,17 +28,10 @@ class BraggingRights extends GameController
 		this.buildLevel(Assets.getMovieClip("coreAssets:Layout_WorldMap"));
 	}
 	
-	public function setDefaultCamera()
-	{
-		IGE.coreCamera.setFollowObject(this.camera);
-	}
 	
 	override public function parseLevelData(incCurrentObject:DisplayObject):Void
 	{
-		if (incCurrentObject.name == "base_Sphere")
-		{
-			this.camera = new Core_GameObject(incCurrentObject, incCurrentObject.name, Core_GameObject.body_Kinematic, Core_GameObject.bodyShape_Sphere);
-		}
+		super.parseLevelData(incCurrentObject);
 		if (incCurrentObject.name == "pip")
 		{
 			var obj:DisplayObject = new Ast_BlueSphere();//new Core_GameObject(incCurrentObject, "base_Sphere", Core_GameObject.body_Kinematic, Core_GameObject.bodyShape_Sphere);
@@ -48,15 +40,14 @@ class BraggingRights extends GameController
 			obj.scaleY = .2;
 			obj.x = incCurrentObject.x;
 			obj.y = incCurrentObject.y;
-			
 		}
-
 	}
+	
 	
 	override public function update():Void 
 	{
 		super.update();
-		this.camera.thumbStickDirectionMove(3);
+		IGE.coreCamera.cameraObject.thumbStickDirectionMove(3);
 	}
 	
 }

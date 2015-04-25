@@ -6,8 +6,8 @@ package coreClasses;
  */
 class Core_Camera 
 {
-	
-	public var followObect:Core_GameObject;
+	public var cameraObject:Core_GameObject;
+	public var followObect:Dynamic;
 	public var oldPosX:Float = 0;
 	public var oldPosY:Float = 0;
 	public var diffX:Float = 0;
@@ -21,12 +21,10 @@ class Core_Camera
 		
 	}
 	
-	public function setFollowObject(incObject:Core_GameObject):Void
+	public function setFollowObject(incObject:Dynamic):Void
 	{
 		if (this.followObect == null)
 		{
-			this.diffX = (IGE.base_WindowWidth/2)*IGE.scaleAmount;
-			this.diffY = (-IGE.base_WindowHeight/2)*IGE.scaleAmount;
 			this.panX();
 			this.panY();
 			this.followObect = incObject;
@@ -45,8 +43,6 @@ class Core_Camera
 	
 	public function centerCameraOnFollowObject():Void
 	{
-		this.diffX = -this.followObect.sceneObject.info.x*IGE.scaleAmount;
-		this.diffY = -this.followObect.sceneObject.info.y*IGE.scaleAmount;
 		this.panX();
 		this.panY();
 	}

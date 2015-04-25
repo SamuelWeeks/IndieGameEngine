@@ -13,22 +13,31 @@ class Core_Text
 {
 
 	public var textField:BitmapTextField;
-	public function new() 
+	//fonts
+	public var font_Black:BitmapFont = BitmapFont.fromAngelCode(Assets.getBitmapData("assets/fonts/blackFont.png"), Xml.parse(Assets.getText("assets/fonts/blackFont.fnt")));
+	public var font_White:BitmapFont = BitmapFont.fromAngelCode(Assets.getBitmapData("assets/fonts/whiteFont.png"), Xml.parse(Assets.getText("assets/fonts/whiteFont.fnt")));
+	//text shortcuts, only way i can think of for html5 to allow picking bmpfont, static doesnt work
+	static public var whiteFont:String = "whiteFont";
+	static public var blackFont:String = "blackFont";
+	public function new(incBmpFont:String, incX:Float, incY:Float, incScaling:Float, incText:String) 
 	{
-		// And finally lets test AngelCode font
-		var fontXML:Xml = Xml.parse(Assets.getText("assets/fonts/font.fnt"));
-		var fontImage:BitmapData = Assets.getBitmapData("assets/fonts/font.png");
-		var angelCodeFont:BitmapFont = BitmapFont.fromAngelCode(fontImage, fontXML);
-		
-		
-		this.textField = new BitmapTextField(angelCodeFont);
-		this.textField.text = "its my game time homeboy";
+	 
+		switch(incBmpFont)
+		{
+			case "whiteFont":this.textField = new BitmapTextField(this.font_White);
+			case "blackFont":this.textField = new BitmapTextField(this.font_Black);
+		}
+		this.textField.scaleX = incScaling;
+		this.textField.scaleY = incScaling;
+		this.textField.x = incX;
+		this.textField.y = incY;
+		this.textField.text = incText;
 		//this.textField.alignment =  BitmapTextAlign.CENTER;
 		this.textField.autoSize = false;
 		//this.textField.wordWrap = true;
 		this.textField.wrapByWord = true;
-		this.textField.width = 400;
-		this.textField.y = 0;
+		this.textField.width = 1000;
+		//this.textField.y = 0;
 		this.textField.padding = 3;
 		this.textField.lineSpacing = 3;
 		//this.textField.
@@ -36,6 +45,11 @@ class Core_Text
 		
 		//this.textField.scaleX = .5;
 		//this.textField.scaleY = .5;
+	}
+	
+	public function setBitMapFont():Void
+	{
+		//this.bitMapFont = 
 	}
 	
 }
